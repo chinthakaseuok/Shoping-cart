@@ -1,18 +1,18 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import {Col, Row} from "react-bootstrap";
-import facebook from "../../assets/icons/1.facebook.svg"
-import twitter from "../../assets/icons/2.twitter.svg"
-import linkedIn from "../../assets/icons/3.LinkedIn.svg"
-import pinterest from "../../assets/icons/4.pinterest.svg"
-import wifi from "../../assets/icons/5.WiFi.svg"
-import youtube from "../../assets/icons/6.Youtube.svg"
+import facebook from "../../assets/icons/facebook.svg"
+import twitter from "../../assets/icons/twitter.svg"
+import linkedIn from "../../assets/icons/LinkedIn.svg"
+import pinterest from "../../assets/icons/pinterest.svg"
+import wifi from "../../assets/icons/WiFi.svg"
+import youtube from "../../assets/icons/Youtube.svg"
 
 const Footer = () => {
     return (
         <Container fluid className="d-flex justify-content-center px-0">
             <Row className='Footer'>
-                <Col xs={12} className='footerNaviBar text-center'>
+                <Col xs={12} className='footerNaviBar text-center px-0'>
                     <ul className='pt-4 px-0'>
                         <li className=' pb-1'>
                             ABOUT US

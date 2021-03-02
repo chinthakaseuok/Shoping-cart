@@ -1,0 +1,85 @@
+.header{
+  font-size: 1rem;
+  ul{
+    padding: 0 35px 0 35px;
+    li{
+      display: inline;
+      list-style: none;
+      font-size: 1.4em;
+
+      .delivery{
+        color: #787878;
+        img{
+        height: 1.5em;
+        }
+      }
+      .contact{
+        color: #141213;
+      }
+      .register{
+        color: #4caf50;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+      }
+      .login{
+        color: #4caf50;
+      }
+    }
+  }
+  .topLine{
+    border-bottom: 3px solid black;
+    padding: 0;
+  }
+  .logo{
+    color: #4caf50;
+    font-size: 3em;
+    font-weight: bold;
+    padding-left: 40px;
+  }
+  .cart{
+    img{
+      height: 3em;
+    }
+  }
+  .CheckOutButton{
+    padding-right: 50px;
+    h3 {
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+      font-size: 1.5em;
+    }
+  }
+  .shopping-cart-icon-bubble {
+    top: -.1em;
+    right: 0.6em;
+    background-color: #4caf50;
+    height: 1.6em;
+    width: 1.6em;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    font-size: 0.5rem;
+    ul {
+      padding: 0 5px 0 5px;
+    }
+    .logo{
+      padding-left: 10px;
+    }
+
+    .CheckOutButton{
+      padding-right: 5px;
+      h3{
+        font-size: 1em;
+      }
+    }
+  }
+}
