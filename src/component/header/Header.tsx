@@ -16,7 +16,7 @@ const Header :React.FC = () => {
         return (<span className='shopping-cart-icon-bubble'>9+</span>);
     }
     return(
-        <Row className='header mt-5'>
+        <Row className='header mt-5 d-flex'>
             <Col xs={12} className='px-0'>
                 <ul className='text-right mb-0'>
                     <li>

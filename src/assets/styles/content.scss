@@ -1,0 +1,16 @@
+.NaviBar{
+  font-size: 1em;
+  .naviDropDown{
+    font-size: 1.2em;
+  }
+  span{
+    font-size: 1.2em;
+    padding: 0 1em 0 1em;
+  }
+}
+
+@media (max-width: 576px) {
+  .NaviBar{
+    font-size: .5em;
+  }
+}
