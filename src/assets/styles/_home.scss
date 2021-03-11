@@ -64,6 +64,18 @@
     padding: 1.5em;
   }
 }
+.category-title {
+  color: #239923;
+  font-size: 2em;
+  font-weight: 400;
+}
+.category-image {
+  width: 40%;
+}
+.category-view {
+  border: 1px solid #cfcfcf;
+  border-radius: 5px;
+}
 
 @media (max-width: 576px) {
   .NaviBar{
@@ -98,6 +110,9 @@
       font-size: 1em;
       padding: 1em;
     }
+  }
+  .category-title {
+    font-size: 1em;
   }
 }
 

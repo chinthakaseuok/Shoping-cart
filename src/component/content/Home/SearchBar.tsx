@@ -1,6 +1,6 @@
 import React from "react";
-import {Col, Form, Row} from "react-bootstrap";
-import { Search } from 'react-feather';
+import {Col, Form} from "react-bootstrap";
+import {Search} from 'react-feather';
 
 const SearchBar : React.FC = () =>{
     return(
