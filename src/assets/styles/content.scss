@@ -46,6 +46,24 @@
     margin-top: 1em;
   }
 }
+.searchForm {
+    margin: 3em 0 3em 0;
+  .search-icon {
+    position: absolute;
+    right: 3em;
+    top: 4em;
+    z-index: 10;
+    color: #898989;
+    cursor: pointer;
+  }
+
+  .searchBar {
+    border-radius: 10px;
+    border: 2px solid #67bb6a;
+    font-size: 1em;
+    padding: 1.5em;
+  }
+}
 
 @media (max-width: 576px) {
   .NaviBar{
@@ -66,6 +84,19 @@
     }
     p{
       margin-top: .2em;
+    }
+  }
+  .searchForm {
+    margin: 2em 0 2em 0;
+    .search-icon {
+      top: 2.5em;
+    }
+
+    .searchBar {
+      border-radius: 10px;
+      border: 2px solid #67bb6a;
+      font-size: 1em;
+      padding: 1em;
     }
   }
 }
