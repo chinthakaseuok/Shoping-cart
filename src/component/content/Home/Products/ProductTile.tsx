@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import {Button, Col, Row} from "react-bootstrap";
-import coconut from "../../../assets/images/coconut.png"
-import carrot from "../../../assets/images/carrot.png"
 import CurrencyInput from "react-currency-input-field";
 import {MDBInput} from "mdbreact";
 

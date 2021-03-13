@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Row} from "react-bootstrap";
-import CategoryImage from '../../../assets/images/store-category-1.jpg';
+import CategoryImage from '../../../../assets/images/store-category-1.jpg';
 
 const CategoryView: React.FC = () => {
 
