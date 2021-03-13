@@ -1,6 +1,5 @@
 import React from "react";
-import {Col, Row} from "react-bootstrap";
-import CategoryHorizontalList from "./CategoryHorizontalList";
+import {Col} from "react-bootstrap";
 
 const CategoryList: React.FC = () =>{
     return (

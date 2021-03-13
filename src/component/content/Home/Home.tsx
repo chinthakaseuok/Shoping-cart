@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import SearchBar from "./SearchBar";
 import CategoryList from "./CategoryList";
 import CategoryHorizontalList from "./CategoryHorizontalList";
+import ProductList from "./ProductList";
 
 const Home: React.FC = () =>{
     return(
@@ -12,6 +13,7 @@ const Home: React.FC = () =>{
             <SearchBar/>
             <CategoryList/>
             <CategoryHorizontalList/>
+            <ProductList/>
         </Row>
     );
 };
