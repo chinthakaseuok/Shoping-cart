@@ -1,10 +1,10 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import Banner from "./Banner";
-import SearchBar from "./SearchBar";
-import CategoryList from "./CategoryList";
-import CategoryHorizontalList from "./CategoryHorizontalList";
-import ProductList from "./ProductList";
+import Banner from "./Banner/Banner";
+import SearchBar from "./CategoryWithSearchBar/SearchBar";
+import CategoryList from "./CategoryWithSearchBar/CategoryList";
+import CategoryHorizontalList from "./CategoryWithSearchBar/CategoryHorizontalList";
+import ProductList from "./Products/ProductList";
 
 const Home: React.FC = () =>{
     return(

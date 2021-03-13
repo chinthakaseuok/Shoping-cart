@@ -1,9 +1,9 @@
 import React from "react";
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Container, Dropdown, Image, Row} from "react-bootstrap";
 import delivery from "../../assets/icons/delivery (2).svg";
 import {FiPhoneCall} from "react-icons/all";
 import ShoppingCart from "../../assets/icons/cart.svg"
-
+import CartPreview from "./CartPreview";
 
 
 const Header :React.FC = () => {
@@ -16,7 +16,7 @@ const Header :React.FC = () => {
         return (<span className='shopping-cart-icon-bubble'>9+</span>);
     }
     return(
-        <Row className='header mt-5 d-flex'>
+        <Row className='FullHeader mt-5 d-flex'>
             <Col xs={12} className='px-0'>
                 <ul className='text-right mb-0'>
                     <li>
@@ -37,16 +37,25 @@ const Header :React.FC = () => {
                 <hr className='topLine md-5'/>
             </Col>
 
-            <Col xs={8} className='mb-2'>
-               <h1 className='logo mb-0'>LOGO</h1>
-            </Col>
-            <Col xs={2} className='cart text-right pt-1 mb-2'>
-                <img src={ShoppingCart} alt={ShoppingCart}/>
-                <CartBubble/>
+            <Col xs={12} className='cart text-right pt-1 mb-2 '>
+                <Container className='header d-flex align-items-center justify-content-between sticky-top pr-lg-5' fluid>
+                    <span className='logo mr-auto mouse-pointer'>LOGO</span>
+                    <span className='mx-lg-4 shopping-cart-icon-area'>
+                         <Dropdown>
+                          <Dropdown.Toggle className='shopping-cart-icon-button'>
+                            <Image className='shopping-cart-icon mouse-pointer'
+                                   src={ShoppingCart} alt={"shopping-cart-icon"}/>
+                            <CartBubble/>
+                         </Dropdown.Toggle>
+                             <CartPreview/>
+                         </Dropdown>
+                     </span>
 
-            </Col>
-            <Col xs={2} className='CheckOutButton pl-0 mb-2' >
-                <h3 className=' py-2 mb-0 text-center'>Check out</h3>
+                    <Button variant={"success"} className='checkout-button d-none d-lg-block'>
+                        CheckOut
+                    </Button>
+
+                </Container>
             </Col>
         </Row>
 

@@ -1,8 +1,8 @@
 import React from "react";
 import ProductTile from "./ProductTile";
 import {Row, Col, Container} from "react-bootstrap";
-import coconut from "../../../assets/images/coconut.png"
-import carrot from "../../../assets/images/carrot.png"
+import coconut from "../../../../assets/images/coconut.png"
+import carrot from "../../../../assets/images/carrot.png"
 
 const ProductList : React.FC = () => {
     return(

@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
-import banner from "../../../assets/images/banner.jpg"
-import leaves from "../../../assets/images/leaves-logo.png"
+import banner from "../../../../assets/images/banner.jpg"
+import leaves from "../../../../assets/images/leaves-logo.png"
 
 const Banner : React.FC = () =>{
 
