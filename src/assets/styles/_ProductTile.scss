@@ -1,0 +1,171 @@
+.searchResults {
+  font-size: 1em;
+
+  .product-tile {
+    border: 1px solid #cfcfcf;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  .productImage {
+    width: 100%;
+    height: 15em;
+    padding: 10px;
+    padding-bottom: 5px;
+    object-fit: scale-down;
+  }
+
+  .productName {
+    font-size: 1.7em;
+    font-weight: bolder;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .productPrice {
+    font-size: 1.2em;
+    font-weight: bolder;
+    justify-content: center;
+    color: #4caf50;
+    width: 100%;
+    border: 0;
+    background-color: white;
+    padding: 0px;
+  }
+
+  .preProductPrice {
+    font-size: 1.2em;
+    align-self: center;
+    color: #898989;
+    padding: 0;
+    border: 0;
+    background-color: white;
+    width: 100%;
+    text-align: right;
+
+
+  }
+
+  .qty {
+    font-size: 1.4em;
+    width: 100%;
+    height: 40px;
+    padding-right: 0;
+  }
+
+
+  .update {
+    width: 100%;
+    font-size: 1.2em;
+    background-color: $border-color;
+    border-color: #4caf50;
+    border-radius: 0.5em;
+  }
+
+  .addBtn {
+    width: 100%;
+    font-size: 1.2em;
+    background-color: #4caf50;
+    border-color: #4caf50;
+    border-radius: 0.5em;
+
+
+    &:hover {
+      background-color: #2a7c2c;
+      border-color: #4caf50;
+    }
+
+    &:focus {
+      background-color: #2a7c2c;
+      border-color: #4caf50;
+    }
+  }
+
+  .strikethrough {
+    position: relative;
+  }
+
+  .strikethrough:before {
+    position: absolute;
+    content: "";
+    left: 25%;
+    top: 40%;
+    right: 0%;
+    border-top: 2px solid #898989;
+
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    transform: rotate(8deg);
+  }
+
+  .none {
+    display: none;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+
+  }
+
+
+  input[type="number"] {
+    border: 1px solid #cfcfcf;
+
+  }
+}
+@media (max-width: 560px) {
+  .searchResults {
+    font-size: 0.9em;
+
+    .productImage {
+      height: 11em;
+    }
+
+    .strikethrough:before {
+      left: 30%;
+      right: 30%;
+
+
+    }
+    .qty{
+      height: 30px;
+    }
+
+    .productPrice{
+      text-align: center;
+    }
+    .preProductPrice{
+      text-align: center;
+    }
+
+
+
+  }
+}
+
+@media (max-width: 376px) {
+  .searchResults {
+    font-size: 0.8em;
+
+    .addBtn{
+      padding: 4px;
+    }
+
+  }
+}
+
+@media (max-width: 320px) {
+  .searchResults {
+    .addBtn{
+      padding: 3px;
+    }
+
+    .qty{
+      height: 25px;
+    }
+
+  }
+}
+
