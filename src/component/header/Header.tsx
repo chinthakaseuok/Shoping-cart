@@ -4,11 +4,18 @@ import delivery from "../../assets/icons/delivery (2).svg";
 import {FiPhoneCall} from "react-icons/all";
 import ShoppingCart from "../../assets/icons/cart.svg"
 import CartPreview from "./CartPreview";
+import {useHistory} from 'react-router-dom';
 
 
 const Header :React.FC = () => {
 
+    const history = useHistory<string>();
     const cartCount: number = 9;
+
+    const handleRouting = (path:string) => {
+        history.push(path);
+    }
+
     const CartBubble: React.FC = () => {
         if (cartCount < 10) {
             return (<span className='shopping-cart-icon-bubble'>{cartCount}</span>);
@@ -51,10 +58,10 @@ const Header :React.FC = () => {
                          </Dropdown>
                      </span>
 
-                    <Button variant={"success"} className='checkout-button d-none d-lg-block'>
+                    <Button variant={"success"} className='checkout-button d-none d-lg-block'
+                            onClick={() => handleRouting('/checkout')}>
                         CheckOut
                     </Button>
-
                 </Container>
             </Col>
         </Row>

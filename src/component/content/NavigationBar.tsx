@@ -1,6 +1,24 @@
 import React from "react";
 import {Dropdown, Row} from "react-bootstrap";
 
+// const Routes: React.FC = () => {
+//
+//     return(
+//         <Switch>
+//             <Route
+//                 path={'/checkout'}
+//                 exact={true}
+//                 children={()=> <CheckOut/>}
+//             />
+//             <Route
+//                 path={'/'}
+//                 children={()=><Home/>}
+//             />
+//         </Switch>
+//     );
+// }
+
+
 const NavigationBar : React.FC = () =>{
     return(
         <Row className='NaviBar pb-2'>
