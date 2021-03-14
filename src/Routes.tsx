@@ -6,7 +6,6 @@ import Home from "./component/content/Home/Home";
 const Routes: React.FC = () => {
 
     return(
-        <Router>
         <Switch>
             <Route
                 path={'/checkout'}
@@ -18,7 +17,6 @@ const Routes: React.FC = () => {
                 children={()=><Home/>}
             />
         </Switch>
-        </Router>
     );
 };
 export default Routes;

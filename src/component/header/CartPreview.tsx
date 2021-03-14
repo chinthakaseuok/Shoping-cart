@@ -4,6 +4,7 @@ import CartPreviewItem from "./CartPreviewItem";
 import coconut from "../../assets/images/coconut.png"
 import carrot from "../../assets/images/carrot.png"
 import Summary from "./Summary";
+import {useHistory} from "react-router-dom";
 
 
     const CartItems = () => {
@@ -24,12 +25,18 @@ import Summary from "./Summary";
     }
 
     const CartPreview: React.FC = () =>{
+
+        const history = useHistory<string>();
+        const handleRouting = (path:string) => {
+            history.push(path);
+        }
+
         return(
             <Dropdown.Menu className='cart-preview-section'>
                 <CartItems/>
                 <Summary/>
                 <Button variant={"success"} className='float-right py-0 px-5'
-                        >Check Out</Button>
+                        onClick={() => handleRouting('/checkout')}>Check Out</Button>
             </Dropdown.Menu>
         );
     };

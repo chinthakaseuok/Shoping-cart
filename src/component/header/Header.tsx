@@ -36,7 +36,7 @@ const Header :React.FC = () => {
                         <label className='register px-3'> Register</label>
                     </li>
                     <li>
-                        <label className='login px-3'> Login</label>
+                        <label className='login px-3' > Login</label>
                     </li>
                 </ul>
             </Col>
@@ -46,7 +46,7 @@ const Header :React.FC = () => {
 
             <Col xs={12} className='cart text-right pt-1 mb-2 '>
                 <Container className='header d-flex align-items-center justify-content-between sticky-top pr-lg-5' fluid>
-                    <span className='logo mr-auto mouse-pointer'>LOGO</span>
+                    <span className='logo mr-auto mouse-pointer' onClick={() => handleRouting('/')}>LOGO</span>
                     <span className='mx-lg-4 shopping-cart-icon-area'>
                          <Dropdown>
                           <Dropdown.Toggle className='shopping-cart-icon-button'>
