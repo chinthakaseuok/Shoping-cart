@@ -4,11 +4,18 @@ import delivery from "../../assets/icons/delivery (2).svg";
 import {FiPhoneCall} from "react-icons/all";
 import ShoppingCart from "../../assets/icons/cart.svg"
 import CartPreview from "./CartPreview";
+import {useHistory} from 'react-router-dom';
 
 
 const Header :React.FC = () => {
 
+    const history = useHistory<string>();
     const cartCount: number = 9;
+
+    const handleRouting = (path:string) => {
+        history.push(path);
+    }
+
     const CartBubble: React.FC = () => {
         if (cartCount < 10) {
             return (<span className='shopping-cart-icon-bubble'>{cartCount}</span>);
@@ -29,7 +36,7 @@ const Header :React.FC = () => {
                         <label className='register px-3'> Register</label>
                     </li>
                     <li>
-                        <label className='login px-3'> Login</label>
+                        <label className='login px-3' > Login</label>
                     </li>
                 </ul>
             </Col>
@@ -39,7 +46,7 @@ const Header :React.FC = () => {
 
             <Col xs={12} className='cart text-right pt-1 mb-2 '>
                 <Container className='header d-flex align-items-center justify-content-between sticky-top pr-lg-5' fluid>
-                    <span className='logo mr-auto mouse-pointer'>LOGO</span>
+                    <span className='logo mr-auto mouse-pointer' onClick={() => handleRouting('/')}>LOGO</span>
                     <span className='mx-lg-4 shopping-cart-icon-area'>
                          <Dropdown>
                           <Dropdown.Toggle className='shopping-cart-icon-button'>
@@ -51,10 +58,10 @@ const Header :React.FC = () => {
                          </Dropdown>
                      </span>
 
-                    <Button variant={"success"} className='checkout-button d-none d-lg-block'>
+                    <Button variant={"success"} className='checkout-button d-none d-lg-block'
+                            onClick={() => handleRouting('/checkout')}>
                         CheckOut
                     </Button>
-
                 </Container>
             </Col>
         </Row>

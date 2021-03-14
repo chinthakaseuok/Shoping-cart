@@ -21,7 +21,8 @@
     "web-vitals": "^1.1.0",
     "react-feather": "^2.0.9",
     "react-currency-input-field": "^3.3.0",
-    "mdbreact": "^5.0.1"
+    "mdbreact": "^5.0.1",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.7"
   }
 }

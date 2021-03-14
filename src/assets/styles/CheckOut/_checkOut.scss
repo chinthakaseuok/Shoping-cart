@@ -1,0 +1,161 @@
+.checkout {
+  font-size: 1em;
+
+
+  .priceDisplay{
+    border: 0px;
+    background-color: white;
+    width: 100%;
+
+  }
+  .CheckOut-title {
+    color: #454545;
+    font-size: 2.5em;
+    padding-left: 0.5em;
+
+  }
+
+  .checkoutTable{
+    padding: 1em;
+    margin-left: .8em;
+    margin-right: .8em;
+    border: 1px solid #898989;
+    border-radius: 10px 10px;
+    padding-left: 0.6em;
+    padding-right: 0.5em;
+    font-size: 1.5em;
+
+
+    .listHr{
+      margin: 0;
+    }
+
+    .checkoutListItem{
+      height: 100px;
+
+      .plusMinus{
+        color:  #9a9a9a;
+        margin-bottom: 4px;
+        padding: 3px;
+      }
+
+      .itemImageCol{
+        height: 100%;
+        padding: 0;
+      }
+      .itemImage{
+        height: 100%;
+        padding: 10px;
+        object-fit: scale-down;
+        width: 100%;
+
+      }
+
+      .deleteCheckoutItem{
+        cursor: pointer;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .deliveryCharge{
+    color:#454545;
+
+  }
+
+  .total{
+    color: #ff3939;
+    font-weight: bold;
+
+  }
+
+}
+
+
+@media (max-width: 1024px) {
+
+  .checkout {
+    font-size: 0.8em;
+
+    .checkoutTable {
+      .checkoutListItem {
+        height: 60px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px){
+
+  .checkout {
+    h1{
+      font-size: 3em;
+    }
+    font-size: 0.6em;
+    .checkoutTable {
+      h4{
+        font-size: 1.4em;
+      }
+      .checkoutListItem {
+        height: 60px;
+        .plusMinus{
+          padding: 5px;
+        }
+        .deleteCheckoutItem{
+          padding: 5px;
+        }
+      }
+      .CheckoutButton{
+        height: 2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .checkout {
+    padding-bottom: 2em;
+
+    font-size: 0.7em;
+
+  }
+}
+
+@media (max-width: 320px) {
+  .checkout {
+    font-size: 0.4em;
+    .checkoutTable {
+      margin: 0;
+      padding: 0;
+      .checkoutListItem {
+        height: 50px;
+      }
+      .CheckoutButton{
+         height: 1.5em;
+        padding-top: 0
+       }
+    }
+
+  }
+}
+
+
+@media (max-width: 280px) {
+  .checkout {
+    font-size: 0.7em;
+    .checkoutTable {
+      margin: 0;
+      .imageColHead{
+        display: none;
+      }
+      .checkoutListItem {
+        .itemImageCol{
+          display: none;
+        }
+      }
+      .CheckoutButton{
+        height: 1.5em;
+      }
+    }
+  }
+}
