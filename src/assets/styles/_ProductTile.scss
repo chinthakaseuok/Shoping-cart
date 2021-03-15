@@ -22,7 +22,7 @@
   }
 
   .productPrice {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bolder;
     justify-content: center;
     color: #4caf50;
@@ -33,7 +33,7 @@
   }
 
   .preProductPrice {
-    font-size: 1.2em;
+    font-size: 1.1em;
     align-self: center;
     color: #898989;
     padding: 0;
@@ -77,6 +77,26 @@
     &:focus {
       background-color: #2a7c2c;
       border-color: #4caf50;
+    }
+  }
+
+  .updateBtn {
+    width: 100%;
+    font-size: 1.2em;
+    background-color:  #808080;
+    border-color: black;
+    border-radius: 0.5em;
+    color: white;
+
+
+    &:hover {
+      background-color:#666666;
+      border-color: black;
+    }
+
+    &:focus {
+      background-color: #666666;
+      border-color: black;
     }
   }
 

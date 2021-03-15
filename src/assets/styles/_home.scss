@@ -71,12 +71,16 @@
   font-weight: 400;
 }
 .category-image {
-  width: 40%;
+  width: 5em;
 }
 .category-view {
   border: 1px solid #cfcfcf;
   border-radius: 5px;
 }
+.category{
+  cursor: pointer;
+}
+
 @media (max-width: 576px) {
   .NaviBar{
     font-size: .5em;

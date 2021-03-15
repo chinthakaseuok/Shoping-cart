@@ -14,6 +14,9 @@
     max-height: 15em;
     overflow-y: auto;
   }
+  .empty-cart-image{
+    width: 100%;
+  }
 }
 
 .cart-preview-item {
@@ -23,6 +26,10 @@
     width: 6em;
     height: 4em;
     object-fit: cover;
+  }
+  .deleteCartItem{
+    cursor: pointer;
+    background-color: red;
   }
 
   .item-name{

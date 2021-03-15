@@ -1,20 +1,43 @@
 import React from "react";
-import {Col, Row} from "react-bootstrap";
+import {Col, Row , Image} from "react-bootstrap";
 import CheckoutListItem from "./CheckoutListItem";
-import coconut from "../../../assets/images/coconut.png"
-import carrot from "../../../assets/images/carrot.png"
+import emptyCartImage from "../../../assets/images/empty-cart.png"
 import CheckoutSummery from "./CheckoutSummery";
+import {useSelector} from "react-redux";
+import {CartState, ICartProduct} from "../../../store/storeTypes/cartProducts";
+import {AppState} from "../../../store/reducers";
 
 const CheckoutTable : React.FC = () =>{
 
+    const cart: CartState = useSelector((state: AppState) => state.cart);
+
     const CartItems = () => {
+        if(cart.cartItems.length === 0){
+            return (
+                <Row className='my-0 py-0'>
+                    <Col className='text-center'>
+                        <Image src={emptyCartImage}  className='empty-cart-image' alt={"empty cart"}/>
+                    </Col>
+                </Row>
+            );
+        }
+
         return(
             <React.Fragment>
-                <CheckoutListItem index={1} productName={"Coconut"} image={coconut} price={80} qty={5}/>
-                <CheckoutListItem index={2} productName={"Carrot"} image={carrot} price={60} qty={1}/>
+                {cart.cartItems.map((item:ICartProduct, index:number) => {
+                    return (
+                        <i key={item.product.productId}>
+                            <CheckoutListItem
+                                cartProduct={item}
+                                index={index+1}
+                            />
+                        </i>
+                    );
+                })}
             </React.Fragment>
         );
-    };
+    }
+
 
     return(
         <Row className="checkoutTable">
