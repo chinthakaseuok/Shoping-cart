@@ -1,11 +1,33 @@
 import React from "react";
 import ProductTile from "./ProductTile";
-import {Row, Col, Container} from "react-bootstrap";
-import coconut from "../../../../assets/images/coconut.png"
-import carrot from "../../../../assets/images/carrot.png"
+import {Col, Container, Row} from "react-bootstrap";
+import {products} from "../../../../repository/products";
+import {IProduct} from "../../../../store/storeTypes/product";
+import {useSelector} from "react-redux";
+import {AppState} from "../../../../store/reducers";
 
-const ProductList : React.FC = () => {
-    return(
+const ProductList: React.FC = () => {
+    const currentCategory = useSelector((state: AppState) => state.category.selectedCategory);
+    const populateAllProducts = () => {
+        return (
+            <React.Fragment>
+                {products.map((product: IProduct) => {
+                    if(currentCategory === 'All'){
+                        return (
+                            <ProductTile product={product} key={product.productId}/>
+                        );
+                    }
+                    if( product.category===currentCategory)
+                    return (
+                        <ProductTile product={product} key={product.productId}/>
+                    );
+                })}
+
+            </React.Fragment>
+        );
+    }
+
+    return (
         <Container className='mb-5' fluid>
             <Row className="justify-content-around">
                 <Col xs={12} lg={9}>
@@ -13,46 +35,7 @@ const ProductList : React.FC = () => {
                         <Col xs={12}>
                             <Row className="searchResults">
                                 <Row>
-                                    <ProductTile imageName={coconut}
-                                                 productName={"Coconut"}
-                                                 productPrice={65.00}
-                                                 productPrePrice={70.00}
-                                    />
-                                    <ProductTile imageName={carrot}
-                                                 productName={"Carrot"}
-                                                 productPrice={70.00}
-                                                 productPrePrice={70.00}
-                                    />
-                                    <ProductTile imageName={coconut}
-                                                 productName={"Coconut"}
-                                                 productPrice={65.00}
-                                                 productPrePrice={80.00}
-                                    />
-                                    <ProductTile imageName={carrot}
-                                                 productName={"Carrot"}
-                                                 productPrice={65.00}
-                                                 productPrePrice={70.00}
-                                    />
-                                    <ProductTile imageName={carrot}
-                                                 productName={"Carrot"}
-                                                 productPrice={55.00}
-                                                 productPrePrice={70.00}
-                                    />
-                                    <ProductTile imageName={coconut}
-                                                 productName={"Coconut"}
-                                                 productPrice={65.00}
-                                                 productPrePrice={70.00}
-                                    />
-                                    <ProductTile imageName={carrot}
-                                                 productName={"Carrot"}
-                                                 productPrice={65.00}
-                                                 productPrePrice={70.00}
-                                    />
-                                    <ProductTile imageName={coconut}
-                                                 productName={"Coconut"}
-                                                 productPrice={65.00}
-                                                 productPrePrice={70.00}
-                                    />
+                                    {populateAllProducts()}
                                 </Row>
                             </Row>
                         </Col>

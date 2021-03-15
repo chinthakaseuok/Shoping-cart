@@ -1,9 +1,12 @@
 import React from "react";
 import {Dropdown, Row} from "react-bootstrap";
 import {useHistory} from "react-router-dom";
+import {changeCategory} from "../../store/actions/categoryActions";
+import {useDispatch} from "react-redux";
 
 const NavigationBar : React.FC = () =>{
 
+    const dispatch = useDispatch();
     const history = useHistory<string>();
     const handleRouting = (path:string) => {
         history.push(path);
@@ -17,9 +20,11 @@ const NavigationBar : React.FC = () =>{
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Category 1</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Category 2</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Category 3</Dropdown.Item>
+                    <Dropdown.Item onClick={() => dispatch(changeCategory('All'))}>All</Dropdown.Item>
+                    <Dropdown.Item onClick={() => dispatch(changeCategory('Grocery'))}>Grocery</Dropdown.Item>
+                    <Dropdown.Item onClick={() => dispatch(changeCategory('Pharmacy'))}>Pharmacy</Dropdown.Item>
+                    <Dropdown.Item onClick={() => dispatch(changeCategory('Food'))}>Food</Dropdown.Item>
+                    <Dropdown.Item onClick={() => dispatch(changeCategory('Electronic'))}>Electronic</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             <span  className='item  pt-2 ' onClick={() => handleRouting('/')}>Home</span>
