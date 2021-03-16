@@ -1,35 +1,74 @@
-import React, {useState} from "react";
-import {Button, Col, Row} from "react-bootstrap";
+import React, {useEffect} from "react";
+import {Button, Col, Form, Row} from "react-bootstrap";
 import CurrencyInput from "react-currency-input-field";
-import {MDBInput} from "mdbreact";
 import {useDispatch, useSelector} from "react-redux";
 import {IProduct} from "../../../../store/storeTypes/product";
-import {addProductToCart} from "../../../../store/actions/cartProductActions";
-import {CartState} from "../../../../store/storeTypes/cartProducts";
+import {CartState, ICartProduct} from "../../../../store/storeTypes/cartProducts";
+import * as action from "../../../../store/actions/cartProductActions";
 import {AppState} from "../../../../store/reducers";
+import {Controller, useForm} from "react-hook-form";
+
 
 type ProductProps = {
-    product:IProduct
+    product: IProduct
 }
-const ProductTile:React.FC<ProductProps> = (props) => {
-
-    const {product} = props;
-    const [qty, setQty] = useState<number>(1);
-    const dispatch = useDispatch()
-    const handleOnAdd = () =>{
-        dispatch(addProductToCart({id:product.productId , product : product, qty:qty}))
-    }
+type FormData = {
+    productQty: string;
+};
+const ProductTile: React.FC<ProductProps> = (props) => {
     const cart: CartState = useSelector((state: AppState) => state.cart);
+    const {product} = props;
 
-    const getCartProductQty = (): number => {
-        let cartProductId: number = 0;
+    const getCartProductId = (): number => {
+        let relevantCartProductId: number = 0;
         cart.cartItems.forEach((cartProduct) => {
             if (cartProduct.product.productId === props.product.productId)
-                cartProductId = cartProduct.qty;
+                relevantCartProductId = cartProduct.product.productId;
         })
-        return cartProductId
+        return relevantCartProductId
     }
-    return(
+    const getCartProductQty = (): number => {
+        let CartProductQty: number = 0;
+        cart.cartItems.forEach((cartProduct) => {
+            if (cartProduct.product.productId === props.product.productId)
+                CartProductQty = cartProduct.qty;
+        })
+        return CartProductQty
+    }
+
+    const dispatch = useDispatch();
+
+    const {handleSubmit, control, setValue} = useForm<FormData>();
+
+    useEffect(() => {
+        if (!getCartProductQty()) {
+            setValue("productQty", "1");
+            return;
+        }
+        setValue("productQty", getCartProductQty());
+    });
+
+    const handleOnAddProductToCart = (data: FormData) => {
+        if (data.productQty === '0' && !getCartProductQty()) {
+            setValue('productQty', '1')
+            return;
+        }
+
+        if (!getCartProductQty()) {
+            const newCartProduct: ICartProduct = {
+                id: product.productId,
+                product: product,
+                qty: +data.productQty
+            }
+            dispatch(action.addProductToCart(newCartProduct));
+        } else if (getCartProductQty() && data.productQty === '0') {
+            dispatch(action.removeProductFromCart(getCartProductId()))
+        } else {
+            dispatch(action.updateCartProductQty(props.product.productId, +data.productQty))
+        }
+    }
+
+    return (
         <Col xs={6} sm={6} md={4} lg={3} className="pr-4 pl-4 pb-2 pt-2">
             <Row>
                 <Col className="product-tile">
@@ -41,57 +80,63 @@ const ProductTile:React.FC<ProductProps> = (props) => {
 
                     <React.Fragment>
 
-                            <Row>
-                                <Col className="productName ">
-                                    {product.productName}
-                                </Col>
-                            </Row>
+                        <Row>
+                            <Col className="productName ">
+                                {product.productName}
+                            </Col>
+                        </Row>
 
-                            <Row className="justify-content-center justify-content-between pl-3 pr-3">
-                                <Col xs={12} sm={6} className="productPrice">
-                                    <CurrencyInput
-                                               className= "productPrice text-center"
-                                               value={product.productPrice}
-                                               prefix={"Rs. "}
-                                               decimalScale={2}
-                                               disabled
-                                    />
-                                </Col>
-                                <Col xs={12} sm={6} className="preProductPrice strikethrough">
-                                    <CurrencyInput
-                                               className="productPrice text-center"
-                                                value={product.productPrice}
-                                                prefix={"Rs. "}
-                                                decimalScale={2}
-                                                disabled
-                                    />
-                                </Col>
-                            </Row>
-
+                        <Row className="justify-content-center justify-content-between pl-3 pr-3">
+                            <Col xs={12} sm={6} className="productPrice">
+                                <CurrencyInput
+                                    className="productPrice text-center"
+                                    value={product.productPrice}
+                                    prefix={"Rs. "}
+                                    decimalScale={2}
+                                    disabled
+                                />
+                            </Col>
+                            <Col xs={12} sm={6} className="preProductPrice strikethrough">
+                                <CurrencyInput
+                                    className="productPrice text-center"
+                                    value={product.productPrice}
+                                    prefix={"Rs. "}
+                                    decimalScale={2}
+                                    disabled
+                                />
+                            </Col>
+                        </Row>
+                        <Form onSubmit={handleSubmit(handleOnAddProductToCart)}>
                             <Row className="mt-4 mb-1 justify-content-between ">
                                 <Col lg={12} xl={4} className="align-self-center">
-                                    <MDBInput type="number" className="qty" value={getCartProductQty()} min={0}
-                                              onChange={(e) => {
-                                                  setQty(Number(e.currentTarget.value))
-                                              }}
-                                    />
+
+                                    <Form.Group>
+                                        <Controller
+                                            as={<Form.Control className={'qty'} type="number" placeholder="1" min={0}
+                                                              size={"lg"}/>}
+                                            name={'productQty'}
+                                            defaultValue='1'
+                                            control={control}
+                                        />
+                                    </Form.Group>
                                 </Col>
                                 <Col lg={12} xl={8}>
-                                    {!getCartProductQty()&&<Button type="submit"
-                                                                   className="addBtn"
-                                                                   onClick={handleOnAdd}>
+                                    {!getCartProductQty() && <Button type="submit"
+                                                                     className="addBtn">
+
                                         Add To Cart
                                     </Button>}
 
-                                    {!!getCartProductQty()&&<Button type="submit" variant="danger-outline"
-                                                                  className="updateBtn"
-                                                                  onClick={handleOnAdd}>
+                                    {!!getCartProductQty() && <Button type="submit" variant="danger-outline"
+                                                                      className="updateBtn"
+                                    >
                                         update
                                     </Button>}
 
                                 </Col>
                             </Row>
-                        </React.Fragment>
+                        </Form>
+                    </React.Fragment>
 
                 </Col>
             </Row>
