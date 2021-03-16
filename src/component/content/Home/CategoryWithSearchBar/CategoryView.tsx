@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Row, Image} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 import {changeCategory} from "../../../../store/actions/categoryActions"
 

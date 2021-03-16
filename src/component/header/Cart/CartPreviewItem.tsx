@@ -14,7 +14,7 @@ const CartPreviewItem: React.FC<CartPreviewItemProps> = (props) =>{
     return(
         <Row>
             <Col xs={4} className='px-0 image'>
-                <img src={cartProduct.product.productImage} className='cart-preview-item-image'/>
+                <img src={cartProduct.product.productImage}  alt={cartProduct.product.productImage} className='cart-preview-item-image'/>
             </Col>
             <Col xs={8} className='d-flex flex-column justify-content-between px-0'>
 
